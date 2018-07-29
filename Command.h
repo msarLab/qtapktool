@@ -7,9 +7,10 @@
 
 
 #include <QString>
-
-class Command {
-
+#include <QObject>
+#include <QApplication>
+class Command:public QObject {
+Q_OBJECT
 public:
     explicit Command();
 
@@ -41,15 +42,15 @@ private:
 
     bool check_apktool();
 
-    QString apk_tool_path = "./bin/apktool/apktool.jar ";
-    QString tool_sign_path = "./bin/dex-tools/d2j-apk-sign.sh ";
-    QString tool_repair_path = "./bin/dex-tools/d2j-dex-recompute-checksum.sh ";
-    QString tool_baksmali_path = "./bin/dex-tools/d2j-baksmali.sh ";
-    QString tool_smali_path = "./bin/dex-tools/d2j-smali.sh ";
-    QString tool_dex2jar_path = "./bin/dex-tools/d2j-dex2jar.sh ";
-    QString tool_jar2dex_path = "./bin/dex-tools/d2j-jar2dex.sh ";
-    QString tool_jd_jui_path = "./bin/jd-jui/jd-gui.jar ";
-    QString tool_jadx_path = "./bin/jadx/bin/jadx-gui ";
+    QString apk_tool_path = QApplication::applicationDirPath()+"/bin/apktool/apktool.jar ";
+    QString tool_sign_path = QApplication::applicationDirPath()+"/bin/dex-tools/d2j-apk-sign.sh ";
+    QString tool_repair_path = QApplication::applicationDirPath()+"/bin/dex-tools/d2j-dex-recompute-checksum.sh ";
+    QString tool_baksmali_path =QApplication::applicationDirPath()+ "/bin/dex-tools/d2j-baksmali.sh ";
+    QString tool_smali_path =QApplication::applicationDirPath()+ "/bin/dex-tools/d2j-smali.sh ";
+    QString tool_dex2jar_path = QApplication::applicationDirPath()+"/bin/dex-tools/d2j-dex2jar.sh ";
+    QString tool_jar2dex_path = QApplication::applicationDirPath()+"/bin/dex-tools/d2j-jar2dex.sh ";
+    QString tool_jd_jui_path = QApplication::applicationDirPath()+"/bin/jd-jui/jd-gui.jar ";
+    QString tool_jadx_path = QApplication::applicationDirPath()+"/bin/jadx/bin/jadx-gui ";
     QString cur_path;
 
 };

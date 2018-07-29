@@ -46,7 +46,7 @@ void Console::start_read_err_output() {
 
 void Console::finish_process(int exitCode, QProcess::ExitStatus exitStatus) {
     qDebug() << "结束啦：" << process.state();
-    console_text->insertPlainText("执行完成\n\n\n");
+    console_text->insertPlainText("执行完成\n\n");
 
 }
 
@@ -65,7 +65,7 @@ void Console::run() {
             return;
         }
     } else {
-        console_text->insertPlainText("开始执行:"+cmd+"\n");
+        console_text->insertPlainText("开始执行:\n");
         process.start(cmd);
         //progress.readAllStandardOutput();
         //connect(progress, SIGNAL(readyReadStandardOutput()), this, SLOT(redFromStdOut()));
